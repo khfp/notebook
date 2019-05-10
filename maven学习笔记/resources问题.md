@@ -17,6 +17,7 @@
 
 **问题遗留：**
 编译后/src/main/resources文件中的资源文件直接生成到了/target/classes中，而不是/target/classes/resources文件夹中。
+
 **ps:**
 搞了两天勉强弄好。。。。就当做是熟悉maven和java的基本内容了吧，没人带真鸡儿累。
 
