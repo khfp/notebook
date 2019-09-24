@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-13 15:36:31
- * @LastEditTime: 2019-08-14 15:13:54
+ * @LastEditTime: 2019-09-24 21:26:08
  * @LastEditors: Please set LastEditors
  -->
 ## length() 方法，length 属性和 size() 方法的区别:
@@ -17,3 +17,17 @@
 * 在复合类型(**类**)中：当他们用 **==** 进行比较的时候，比较的是他们在内存中的存放地址，所以，除非是同一个new出来的对象，他们的比较后的结果为true，否则比较后结果为false。
 * JAVA当中所有的类都是继承于Object这个基类的，在Object中的基类中定义了一个equals的方法，这个方法的初始行为是比较对象的内存地址，对于复合数据类型之间进行equals比较，在没有覆写equals方法的情况下，他们之间的比较还是基于他们在内存中的存放位置的地址值的。
 但在一些类库当中这个方法被覆盖掉了，如String,Integer,Date，在这些类当中equals有其自身的实现，而不再是比较类在堆内存中的存放地址了。因为Object的equals方法也是用双等号 **==** 进行比较的，所以比较后的结果跟双等号 **==** 的结果相同。
+
+## 数值类型转换精度损失问题
+
+### bit(位)与byte(字节)
+
+* bit代表二进制数位,取值范围位: (仅)0或1，计算机中的最小存储单元，不能够单独寻址。
+* byte: 意为字节"是计算机文件大小的基本计算单位；8个位（8bit）组成一个字节(1Byte)，用 于表示计算机中的一个字符。可以存储所有ASCII所有字符（这是它包含8bits的初衷。十进制整数范围[-128,127]或[0, 255]最小的可寻址存储单元
+  
+### 转换问题
+
+* int 存储需要四个字节 float存储需要四个字节 double存储需要8字节。
+* 在大整数(int)转为float时会损失精度(float只能有24位来确定精度，而int是32位)
+* int->float long->float long->double 有损
+* int->double  int-long 无损
