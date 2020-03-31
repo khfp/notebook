@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-13 15:36:31
- * @LastEditTime: 2019-09-24 21:26:08
+ * @LastEditTime: 2020-03-31 10:50:37
  * @LastEditors: Please set LastEditors
  -->
 ## length() 方法，length 属性和 size() 方法的区别:
@@ -31,3 +31,12 @@
 * 在大整数(int)转为float时会损失精度(float只能有24位来确定精度，而int是32位)
 * int->float long->float long->double 有损
 * int->double  int-long 无损
+
+### Java序列化
+
+* 序列化(Serializaion)。序列化是一种将对象以一连串的字节描述的过程，用于解决在对对象流进行读写操作时引发的问题。序列化可以将对象的状态写在流里进行网络传输，或者保存到文件，数据库等系统，并在需要时把该流读取出来重新构造一个相同的对象
+* 所有实现序列化的类都必须实现Serializable接口，该接口位与java.lang包中，里面没有包含任何方法。使用一个输出流来构造一个ObjectOutputStream对象，使用该对象的writeObject方法就可以将obj对象写出。
+* 如果一个类能被序列化，他的子类也能被序列化。
+* static代表类的成员,transient代表对象的临时数据(transient声明一个实例变量，当对象存储时，它的值不需要维持)。因此这两种类型的数据成员不能被序列化。
+* 1.需要通过网络发送对象，或对象的状态需要被持久化到数据库或文件中。2.序列化能够实现深复制，即复制引用的对象。
+* 外部序列化. 外部序列化与内部序列化的主要区别在于序列化是内置的API,只需要实现Seriazable接口，开发人员不需要编写任何代码就可以实现对象的序列化，而使用外部序列化时Extenrnalizable接口中的读写方法必须有开发人员来实现。
