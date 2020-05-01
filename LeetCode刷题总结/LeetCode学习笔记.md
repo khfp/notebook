@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-05-09 16:23:40
- * @LastEditTime: 2020-04-09 13:53:14
+ * @LastEditTime: 2020-04-11 21:40:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \GitHubnotebook\LeetCode刷题总结\LeetCode学习笔记.md
@@ -121,3 +121,34 @@
                 if cur.right:
                     queue.append(cur.right)
             return res
+
+## 重建二叉树
+
+输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
+
+    # Definition for a binary tree node.
+    # class TreeNode:
+    #     def __init__(self, x):
+    #         self.val = x
+    #         self.left = None
+    #         self.right = None
+
+    class Solution:
+        def __init__(self):
+            self.dic = None
+            self.pre = None
+        def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+            self.pre = preorder
+            self.dic = {}
+            for i in range(len(inorder)):
+                self.dic[inorder[i]] = i
+            return self.rebuild(0,0,len(inorder)-1)
+        
+        def rebuild(self, pre_node, in_left, in_right):
+            if in_left>in_right:
+                return
+            i = self.dic[self.pre[pre_node]]
+            root = TreeNode(self.pre[pre_node])
+            root.left = self.rebuild(pre_node+1,in_left,i-1)
+            root.right = self.rebuild(pre_node+1+i-in_left,i+1,in_right)
+            return root
