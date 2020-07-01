@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-05-09 16:23:40
- * @LastEditTime: 2020-04-11 21:40:27
+ * @LastEditTime: 2020-05-13 10:33:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \GitHubnotebook\LeetCode刷题总结\LeetCode学习笔记.md
@@ -152,3 +152,25 @@
             root.left = self.rebuild(pre_node+1,in_left,i-1)
             root.right = self.rebuild(pre_node+1+i-in_left,i+1,in_right)
             return root
+
+## 位运算符
+
+1. & 按位与运算符：参与运算的两个值,如果两个相应位都为1,则该位的结果为1,否则为0
+2. | 按位或运算符：只要对应的二个二进位有一个为1时，结果位就为1。
+3. ^ 按位异或运算符：当两对应的二进位相异时，结果为1
+4. ~ 按位取反运算符：对数据的每个二进制位取反,即把1变为0,把0变为1 
+5. << 左移. >> 右移.
+
+
+## 异或运算
+
+### 1. 异或的性质
+
+两个数字异或的结果a^b是将a和b的二进制每一位进行运算，得出的数字。 运算的逻辑是如果同一位的数字相同则为 0，不同则为 1。
+
+### 2. 异或的规律
+
+1. 任何数和本身异或都为0
+2. 任何数和0异或都为本身
+3. 异或运算满足交换律：a^b^c=a^c^b
+
